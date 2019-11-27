@@ -1,5 +1,6 @@
 // Menu Chooser Program v2
 // The chapter 2 assignment version
+// Reqrite cswitch cases using enum
 #include <iostream>
 using namespace std;
 
