@@ -14,7 +14,7 @@ int main()
   // Seed random numbers
   std::srand(static_cast<unsigned int>(time(0)));
   int myGuess;
-  std::cout << "Please give me a number between 1 and 100: ";
+  std::cout << "Please enter any number: ";
   std::cin >> myGuess;
   
   // int secretNumber = std::rand() % 100 + 1;
