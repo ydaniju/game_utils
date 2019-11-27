@@ -36,6 +36,7 @@ int main()
   time_t end = time(0);
   std::cout << "That's it! COM got it in " << tries << " guesses." << std::endl;
   std::cout << "Ended guess at: " << std::ctime(&end) << std::endl;
+  std::cout << "Guesses completed in " << (end - start) << " seconds!" << std::endl;
 
   return 0;
 }
