@@ -41,7 +41,7 @@ int main()
   phrase.erase();
   cout << "The phrase is now: " << phrase << endl;
 
-  if (phrase.size() == 0 && phrase.empty()) // tautology is deliberate
+  if (phrase.length() == 0 && phrase.empty()) // tautology is deliberate
   {
     cout << "\nThe phrase is no more.\n";
   }
