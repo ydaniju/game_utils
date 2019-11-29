@@ -11,6 +11,9 @@ int main()
 {
   enum fields {WORD, HINT, NUM_FIELDS};
   const int NUM_WORDS = 5;
+  const unsigned int BASE_SCORE = 5;
+  const unsigned int LETTER_SCORE = 2;
+  const unsigned int HINT_HIT = 1;
   const string WORDS[NUM_WORDS][NUM_FIELDS] = {
     {"wall", "Do you feel you’re banging your head against something?"},
     {"glasses", "These might help you see the answer."},
@@ -18,6 +21,7 @@ int main()
     {"persistent", "Keep at it."},
     {"jumble", "It’s what the game is all about."}
   };
+  int totalScore = 0;
 
   srand(static_cast<unsigned int>(time(0)));
   int choice = rand() % NUM_WORDS;
@@ -49,6 +53,7 @@ int main()
     if (guess == "hint")
     {
       cout << theHint;
+      totalScore -= HINT_HIT;
     }
     else
     {
@@ -60,8 +65,10 @@ int main()
 
   if (guess == theWord)
   {
+    totalScore += BASE_SCORE + (LETTER_SCORE * length);
     cout << "\nThat’s it! You guessed it!\n";
   }
+  cout << "\nYour score is: " << totalScore << endl;
   cout << "\nThanks for playing.\n";
   return 0;
 }
