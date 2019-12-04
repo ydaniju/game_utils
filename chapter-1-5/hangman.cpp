@@ -7,6 +7,8 @@
 
 using namespace std;
 
+char getGuess();
+
 int main()
 {
   // setup
@@ -27,7 +29,7 @@ int main()
 
   cout << "Welcome to Hangman. Good luck!\n";
 
-  // mian loop
+  // main loop
   while ((wrong < MAX_WRONG) && (soFar != THE_WORD))
   {
     cout << "\nYou have " << (MAX_WRONG - wrong);
@@ -37,16 +39,12 @@ int main()
     cout << "\nSo far, thw word is:\n" << soFar << endl; 
 
     char guess; 
-    cout << "\n\nEnter your guess: ";
-    cin >> guess;
-    guess = toupper(guess);
+    guess = getGuess();
 
     while (used.find(guess) != string::npos)
     {
       cout << "\nYou've already guessed " << guess << endl;
-      cout << "\n\nEnter your guess: ";
-      cin >> guess;
-      guess = toupper(guess);
+      guess = getGuess();
     }
 
     used += guess;
@@ -84,4 +82,12 @@ int main()
   cout << "\nThe word was " << THE_WORD << endl;
 
   return 0;
+}
+
+inline char getGuess()
+{
+  char guess;
+  cout << "\n\nEnter your guess: ";
+  cin >> guess;
+  return toupper(guess);
 }
